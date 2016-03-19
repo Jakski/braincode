@@ -8,7 +8,7 @@ def selectFrom(sqlScript):
     cursor.execute(sqlScript)
     val = cursor.fetchall()
     conn.commit()
-    return str(val)
+    return val
 
 
 def insertInto(sqlScript):
@@ -39,11 +39,25 @@ def dbSelectType(id, name):
     if id == "0" and name == "0":
         sqlScript = "select * from type"
     elif id == "0":
-        sqlScript = "select * from type where name = name"
+        sqlScript = "select * from type where name = {a}".format(a=name)
     else:
-        sqlScript = "select * from type where id_type = id"
+        sqlScript = "select * from type where id_type = {a}".format(a=id)
     return selectFrom(sqlScript)
 
+
+def dbInsertHash(hash):
+    sqlScript = "INSERT INTO hash(hash) VALUES ({a});".format(a=hash)
+    insertInto(sqlScript)
+
+
+def dbSelectHash(id, hash):
+    if id == "0" and hash == "0":
+        sqlScript = "select * from hash"
+    elif id == "0":
+        sqlScript = "select * from hash where hash = {a}".format(a=hash)
+    else:
+        sqlScript = "select * from hash where id = {a}".format(a=id)
+    return selectFrom(sqlScript)
 
 
 if __name__ == "__main__":
