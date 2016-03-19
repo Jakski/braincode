@@ -1,1 +1,14 @@
-<p>This is the drinks view.</p>
+<div class="jumbotron">
+  <h1>To możesz zrobić:</h1>
+<ul class="drinks">
+  <li ng-repeat="x in drins">
+    <span>{{x.name}}</span>
+    <p>{{x.icon}}</p>
+  </li>
+</ul>
+<p><a ng-href="#/main" class="btn btn-lg btn-danger">
+    Cofnij!
+    <span class="glyphicon glyphicon-remove"></span></a>
+</p>
+
+</div>

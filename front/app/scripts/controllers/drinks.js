@@ -8,10 +8,15 @@
  * Controller of the frontApp
  */
 angular.module('frontApp')
-  .controller('DrinksCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('DrinksCtrl', function ($scope) {
+      $scope.drins = [
+          {
+              name: 'asd',
+              icon: 'sfsdf'
+          },
+          {
+              name: 'sd',
+              icon: 'sdf'
+          }
+      ];
   });

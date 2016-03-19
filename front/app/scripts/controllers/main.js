@@ -9,11 +9,6 @@
  */
 angular.module('frontApp')
   .controller('MainCtrl', function ($scope) {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
     $scope.selected = [];
     $scope.pickItem = function (item) {
         var itemSrc = item.originalEvent.target.getAttribute('src');
