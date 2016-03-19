@@ -60,7 +60,20 @@ def dbSelectHash(id, hash):
     return selectFrom(sqlScript)
 
 
+def dbInserAlco(id_hash, id_type, name, manufacturer):
+    sqlScript = "INSERT INTO alco(id_hash, id_type, name, manufacturer) VALUES({a}, {b}, {c}, {d});".format(a=id_hash, b=id_type, c=name, d=manufacturer)
+    insertInto(sqlScript)
+
+
+def dbSelectAlco(id_hash, id_type):
+    if id_hash == "0" and id_type == "0":
+        sqlScript = "select * from alco "
+    elif id_hash == "0":
+        sqlScript = "select * from alco where id_type = {a}".format(a=id_type)
+    else:
+        sqlScript = "select * from alco where id_hash = {b}".format(b=id_hash)
+    return selectFrom(sqlScript)
+
 if __name__ == "__main__":
-    dbInsertType("Wino")
     print(dbSelectType("0", "0"))
     print('stop')
