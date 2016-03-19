@@ -26,7 +26,7 @@ def dbSelectTool(id):
     if id == "0":
         sqlScript = "select * from tool"
     else:
-        sqlScript = "select * from tool where id_tool = {a}".format(a=id)
+        sqlScript = "select * from tool where id_tool = '{a}'".format(a=id)
     return selectFrom(sqlScript)
 
 
@@ -39,9 +39,9 @@ def dbSelectType(id, name):
     if id == "0" and name == "0":
         sqlScript = "select * from type"
     elif id == "0":
-        sqlScript = "select * from type where name = {a}".format(a=name)
+        sqlScript = "select * from type where name = '{a}'".format(a=name)
     else:
-        sqlScript = "select * from type where id_type = {a}".format(a=id)
+        sqlScript = "select * from type where id_type = '{a}'".format(a=id)
     return selectFrom(sqlScript)
 
 
@@ -69,9 +69,34 @@ def dbSelectAlco(id_hash, id_type):
     if id_hash == "0" and id_type == "0":
         sqlScript = "select * from alco "
     elif id_hash == "0":
-        sqlScript = "select * from alco where id_type = {a}".format(a=id_type)
+        sqlScript = "select * from alco where id_type = '{a}'".format(a=id_type)
     else:
-        sqlScript = "select * from alco where id_hash = {b}".format(b=id_hash)
+        sqlScript = "select * from alco where id_hash = '{a}'".format(a=id_hash)
+    return selectFrom(sqlScript)
+
+
+def dbInsertIngridient(name, description):
+    sqlScript = "INSERT INTO ingridient(name, description)VALUES('{a}', '{b}');".format(a=name, b=description)
+    insertInto(sqlScript)
+
+
+def dbSelectIngridient(id_igridient, name):
+    if id_igridient == "0" and name == "0":
+        sqlScript = "select * from  ingridient"
+    elif id_igridient == "0":
+        sqlScript = "select * from ingridient where name = '{a}'".format(a=name)
+    else:
+        sqlScript = "select * from ingridient where id_igridient = '{a}'".format(a=id_igridient)
+    return selectFrom(sqlScript)
+
+
+def dbInsertRecipe(id_usr,title,description,tab_ingridiends,tab_ingridiends_quantity, tab_tools):
+    sqlScript = "INSERT INTO recipe(id_usr, title, description, tab_ingridiends, tab_ingridiends_quantity, tab_tools)VALUES ('{a}', '{b}', '{c}',ARRAY[{d}], ARRAY[{e}], ARRAY[{f}]);".format(a=id_usr, b=title, c=description, d=tab_ingridiends, e=tab_ingridiends_quantity, f=tab_tools )
+    insertInto(sqlScript)
+
+
+def dbSelectRecipe():
+    sqlScript = "select * from recipe "
     return selectFrom(sqlScript)
 
 if __name__ == "__main__":
