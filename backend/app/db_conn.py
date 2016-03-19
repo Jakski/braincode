@@ -46,7 +46,7 @@ def dbSelectType(id, name):
 
 
 def dbInsertHash(hash):
-    sqlScript = "INSERT INTO hash(hash) VALUES ({a});".format(a=hash)
+    sqlScript = "INSERT INTO hash(hash) VALUES ('{a}');".format(a=hash)
     insertInto(sqlScript)
 
 
@@ -54,14 +54,14 @@ def dbSelectHash(id, hash):
     if id == "0" and hash == "0":
         sqlScript = "select * from hash"
     elif id == "0":
-        sqlScript = "select * from hash where hash = {a}".format(a=hash)
+        sqlScript = "select * from hash where hash = '{a}'".format(a=hash)
     else:
-        sqlScript = "select * from hash where id = {a}".format(a=id)
+        sqlScript = "select * from hash where id = '{a}'".format(a=id)
     return selectFrom(sqlScript)
 
 
 def dbInserAlco(id_hash, id_type, name, manufacturer):
-    sqlScript = "INSERT INTO alco(id_hash, id_type, name, manufacturer) VALUES({a}, {b}, {c}, {d});".format(a=id_hash, b=id_type, c=name, d=manufacturer)
+    sqlScript = "INSERT INTO alco(id_hash, id_type, name, manufacturer) VALUES('{a}', '{b}', '{c}', '{d}'');".format(a=id_hash, b=id_type, c=name, d=manufacturer)
     insertInto(sqlScript)
 
 
