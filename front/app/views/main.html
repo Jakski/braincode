@@ -1,5 +1,58 @@
+
 <div class="jumbotron">
-  <h1>Pokaż co masz!</h1>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Wybierz produkty</button>
+  <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Lista produktów</h4>
+      </div>
+      <div class="modal-body">
+         <p class="lead">
+    <div class="row">
+      <div class="col-xs-6 col-md-3">
+        <a ng-click="pickItem($event)" class="thumbnail">
+          <img src="images/1.png" alt="...">
+        </a>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <a ng-click="pickItem($event)" class="thumbnail">
+          <img src="images/2.png" alt="...">
+        </a>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <a ng-click="pickItem($event)" class="thumbnail">
+          <img src="images/3.png" alt="...">
+        </a>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <a ng-click="pickItem($event)" class="thumbnail">
+          <img src="images/IMAG1198.jpg" alt="...">
+        </a>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <a ng-click="pickItem($event)" class="thumbnail">
+          <img src="images/IMAG1186.jpg" alt="...">
+        </a>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <a ng-click="pickItem($event)" class="thumbnail">
+          <img src="images/IMAG1190.jpg" alt="...">
+        </a>
+      </div>
+    </div>
+    <!-- End of modal content -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-lg btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
   <p class="lead">
     <div class="row">
       <div class="col-xs-6 col-md-3">
@@ -35,7 +88,9 @@
     </div>
   </p>
   <p><a ng-click="applyChoice()"class="btn btn-lg btn-success" ng-href="#/">
-      Dawaj drina!
+      Kopsnij drina!
       <span class="glyphicon glyphicon-ok"></span></a>
   </p>
 </div>
+
+
